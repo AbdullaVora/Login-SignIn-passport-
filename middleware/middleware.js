@@ -1,15 +1,15 @@
 const { loginModel } = require("../models/blog_model");
 const localStorage = require("passport-local").Strategy;
 
-const authentication = (req, res, next) => {
-  const { name, description } = req.body;
-  if (name && description) {
-    next();
-  } else {
-    console.log("invalid data");
-    res.redirect("/");
-  }
-};
+// const authentication = (req, res, next) => {
+//   const { name, description } = req.body;
+//   if (name && description) {
+//     next();
+//   } else {
+//     console.log("invalid data");
+//     res.redirect("/");
+//   }
+// };
 
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -54,4 +54,4 @@ const localAuth = (passport) => {
   })
 };
 
-module.exports = { authentication, isAuth, localAuth };
+module.exports = { isAuth, localAuth };
